@@ -1,4 +1,4 @@
-## Baixando o código
+# Baixando o código
 
 1. **Clone o repositório Lina v3.10.7 para o diretório /opt/:**
 
@@ -7,9 +7,7 @@
     git clone https://github.com/joaofaria/lina-v3.10.7.git
     ```
 
-## Instalando Node.js
-
-2. **Baixe e instale o Node.js v16.14.0:**
+2. **Instalando Node.js:**
 
     ```bash
     cd /opt
@@ -21,9 +19,7 @@
     echo 'export PATH=/usr/local/node/bin:$PATH' >> ~/.bashrc
     ```
 
-## Instalando dependências
-
-3. **Instale o Yarn globalmente e as dependências do projeto:**
+3. **Instalando dependências:**
 
     ```bash
     cd /opt/lina-v3.10.9
@@ -31,12 +27,41 @@
     yarn install
     ```
 
-## Iniciando o sistema
+4. **Configurando variáveis de ambiente:**
 
-4. **Inicie o sistema em modo de desenvolvimento:**
+    - Edite o arquivo `.env.development` e cole o conteúdo abaixo:
+
+        ```plaintext
+        # Global environment variables, do not modify casually
+        ENV = 'development'
+
+        # base api
+        VUE_APP_BASE_API = ''
+        VUE_APP_PUBLIC_PATH = '/ui/'
+
+        # vue-cli uses the VUE_CLI_BABEL_TRANSPILE_MODULES environment variable,
+        # to control whether the babel-plugin-dynamic-import-node plugin is enabled.
+        # It only does one thing by converting all import() to require().
+        # This configuration can significantly increase the speed of hot updates,
+        # when you have a large number of pages.
+        # Detail:  https://github.com/vuejs/vue-cli/blob/dev/packages/@vue/babel-preset-app/index.js
+
+        VUE_CLI_BABEL_TRANSPILE_MODULES = true
+
+        # External auth
+        VUE_APP_LOGIN_PATH = '/core/auth/login/'
+        VUE_APP_LOGOUT_PATH = '/core/auth/logout/'
+
+        # Dev server for core proxy
+        VUE_APP_CORE_HOST = 'http://localhost:8080'
+        VUE_APP_CORE_WS = 'ws://localhost:8080'
+        VUE_APP_KAEL_HOST = 'http://localhost:8083'
+        VUE_APP_ENV = 'development'
+        ```
+
+5. **Iniciando o sistema:**
 
     ```bash
     npm run dev
     ```
 
-Essas instruções devem ajudá-lo a baixar o código, instalar as dependências necessárias e iniciar o sistema Lina v3.10.7 em modo de desenvolvimento. Certifique-se de seguir cada etapa cuidadosamente para garantir uma configuração correta.
