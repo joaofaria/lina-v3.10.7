@@ -1,49 +1,42 @@
-# Lina
+## Baixando o código
 
-Lina 是 JumpServer 的前端 UI 项目, 主要使用 [Vue](https://cn.vuejs.org/), [Element UI](https://element.eleme.cn/) 完成, 
-名字来源于 Dota 英雄 [Lina](https://baike.baidu.com/item/%E8%8E%89%E5%A8%9C/16693979)
+1. **Clone o repositório Lina v3.10.7 para o diretório /opt/:**
 
-## 开发运行
+    ```bash
+    cd /opt/
+    git clone https://github.com/joaofaria/lina-v3.10.7.git
+    ```
 
-```
-0. 前置条件: 部署运行好 JumpServer API 服务器
+## Instalando Node.js
 
-1. 安装依赖
-$ yarn install
+2. **Baixe e instale o Node.js v16.14.0:**
 
-2. 修改 .env.development VUE_APP_CORE_HOST
-# ...
-VUE_APP_CORE_HOST = 'JUMPSERVER_APIHOST'
+    ```bash
+    cd /opt
+    wget https://nodejs.org/download/release/v16.14.0/node-v16.14.0-linux-x64.tar.xz
+    tar -xf node-v16.14.0-linux-x64.tar.xz
+    mv node-v16.14.0-linux-x64 /usr/local/node
+    chown -R root:root /usr/local/node
+    export PATH=/usr/local/node/bin:$PATH
+    echo 'export PATH=/usr/local/node/bin:$PATH' >> ~/.bashrc
+    ```
 
-3. 运行
-$ yarn serve
+## Instalando dependências
 
-4. 构建
-$ yarn build:prod
-```
+3. **Instale o Yarn globalmente e as dependências do projeto:**
 
-## 生产中部署
-下载 RELEASE 文件，放到合适的目录，修改 nginx配置文件如下
-```
-server {
-  listen 80;
+    ```bash
+    cd /opt/lina-v3.10.9
+    npm install -g yarn
+    yarn install
+    ```
 
-  location /ui/ {
-    try_files $uri / /ui/index.html;
-    alias /opt/lina/;
-  }
+## Iniciando o sistema
 
-  location / {
-    rewrite ^/(.*)$ /ui/$1 last;
-  }
-}
-```
+4. **Inicie o sistema em modo de desenvolvimento:**
 
-## 致谢
-- [Vue](https://cn.vuejs.org) 前端框架
-- [Element UI](https://element.eleme.cn/) 饿了么 UI组件库
-- [Vue-element-admin](https://github.com/PanJiaChen/vue-element-admin) 项目脚手架
+    ```bash
+    npm run dev
+    ```
 
-
-## License & Copyright
-Be consistent with [jumpserver](https://github.com/jumpserver/jumpserver)
+Essas instruções devem ajudá-lo a baixar o código, instalar as dependências necessárias e iniciar o sistema Lina v3.10.7 em modo de desenvolvimento. Certifique-se de seguir cada etapa cuidadosamente para garantir uma configuração correta.
