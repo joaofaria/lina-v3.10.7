@@ -1,0 +1,27 @@
+:root {
+  --color-primary: #fbbf24; //5dfb24
+  --color-success: #2793d7;
+  --color-info: #1c84c6;
+  --color-warning: #5dfb24;
+  --color-danger: #ed5565;
+  --banner-bg: #1c1c1e;
+  --submenu-bg: #18181b;
+  --menu-bg: #18181b;
+  --menu-text: #fbbf24;
+  --menu-text-active: #fbbf24;
+  --menu-hover: #18181b;
+}
+
+:export {
+  --color-primary: #fbbf24;
+  --color-info: #1c84c6;
+  --color-success: #2793d7;
+  --color-warning: #5dfb24;
+  --color-danger: #ed5565;
+  --banner-bg: #1c1c1e;
+  --submenu-bg: #18181b;
+  --menu-bg: #18181b;
+  --menu-text: #fbbf24;
+  --menu-text-active: #fbbf24;
+  --menu-hover: #18181b;
+}
